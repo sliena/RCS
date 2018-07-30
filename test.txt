@@ -4,3 +4,4 @@ git add test.txt
 git status
 git commit -m "das messag" text.txt
 git push -u origin master
+last test
