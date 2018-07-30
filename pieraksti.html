@@ -1,0 +1,48 @@
+<script>
+    
+    $(".rating-circle").hover(function() {
+            $(this).addClass(".rating-hover");
+        });
+
+    $(".rating-circle").hover(function(){
+            $(this).addClass(".rating-hover");
+        });
+
+    $(".rating-circle").hover(function(){
+            $(this).addClass("rating-hover");
+        });
+</script>
+
+
+<script>
+    $(".rating-circle").hover(function(){
+            $(".rating-circle").addClass("rating-hover");
+        });
+
+        //$(".rating-circle").hover(function(){
+        //    $(this).addClass("rating-hover");
+        //});
+        $(".rating-circle").hover(function() {
+            $(this).nextAll().removeClass("rating-hover");
+        });
+        
+        $(".rating-circle").hover(function() {
+            $(this).addClass("rating-chosen");
+        });
+        $(".rating-circle").mouseout(function() {
+            $(".rating-circle").removeClass("rating-hover rating-chosen");
+        });
+        //
+
+
+
+        $(".rating-circle").hover(function(){
+            $(this).addClass("rating-chosen");
+        });
+        $(".rating-circle").mouseout(function() {
+            $(".rating-circle").removeClass("rating-hover rating-chosen");
+        });
+        $(".rating-circle").click(function(){
+            $(this).prevAll().addClass("rating-chosen");
+        });
+</script>
