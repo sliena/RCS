@@ -54,6 +54,7 @@
             $(".rating-circle").removeClass("rating-hover");
             $(this).addClass("rating-chosen");
             $(this).prevAll().addClass("rating-chosen");
+            $(this).nextAll().removeClass("rating-chosen rating-hover");
         });
 
 

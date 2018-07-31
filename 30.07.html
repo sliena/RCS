@@ -50,9 +50,9 @@
             //$("#target").click(function(){
             //    alert("Target clicked");
             //})
-            $("div.list").click(function(){
-                $(this).text("clicked!");
-            })
+            //$("div.list").click(function(){
+            //    $(this).text("clicked!");
+            //})
             //$('[custom="article"]').text("custom article");
             //$('[class^="col"]').text("blablabla");
             //$('[class*="md"]').text("tralalala");
@@ -77,18 +77,28 @@
             //$("#3rd").nextAll().attr("style", "color: blue");
             //$("#3rd").nextUntil(".last").attr("style", "color: red");
 
-            $(".rating-circle").hover(function(){
-            $(this).prevAll().addClass("rating-hover");
+            //$(".rating-circle").hover(function(){
+            //$(this).prevAll().addClass("rating-hover");
+        //});
+        //$(".rating-circle").mouseout(function(){
+            //$(this).prevAll().removeClass("rating-hover");
+        //});
+        //$(".rating-circle").click(function(){
+            //$(this).prevAll().addClass("rating-chosen");
+        //})
+
+
+        function alertBox() {
+            $("#target").append("<div class='testDiv'>This is test div</div>");
+            //$("body").off("click", ".list", alertBox);
+        }
+        $("body").on("click", ".list", alertBox);
+
+        $("body").delegate(".testDiv", "click", function() {
+            $(".testDiv").hide(2000, "linear", function (){
+                alert("lama lama");
+            });
         });
-        $(".rating-circle").mouseout(function(){
-            $(this).prevAll().removeClass("rating-hover");
-        });
-        $(".rating-circle").click(function(){
-            $(this).prevAll().addClass("rating-chosen");
-        })
-
-
-
 
 
         });

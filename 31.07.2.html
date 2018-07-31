@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .done{
+            text-decoration: line-through;
+        }
+                
+        li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+                
+    </style>
+
+</head>
+<body>
+    <input type="text" id="todo" placeholder="To Do"/>
+    <button id="submit">submit</button>
+    <h2>todo list</h2>
+    <ul id="todolist">
+        
+    </ul>
+    <button id="remove">Remove</button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+
+        $(function() {
+
+           
+
+            let save= localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+            const data = JSON.parse(localStorage.getItem('items'));
+            console.log(localStorage);
+            $("#todolist").sortable();
+            $("#remove").hide();
+
+
+            if (data != null) {
+                data.forEach(item => {
+                $("ul#todolist").append("<li>" + item + "</li>");
+            });
+            }
+
+
+            $("#submit").click(function(){
+               var v = $("#todo").val();
+               if (v!="") {
+               $("ul#todolist").append("<li>" + v + "</li>");
+               $("#todo").val("");
+               save.push(v);
+               localStorage.setItem('items', JSON.stringify(save));   
+                } else {
+                   alert("das box be empty");
+               };
+             });
+
+            
+            
+            $("body").delegate("ul > li", "click", function(){ 
+                $(this).addClass("done");
+                $("#remove").show();
+
+            }); 
+            $("body").delegate("#remove", "click", function(){
+                $(".done").remove();
+                $("#remove").hide();
+            });
+            
+            
+
+            
+            
+
+            
+            
+
+
+        });
+//html nemainam;
+//izveidojam funkciju, kas piespiežot uz #submit pogas input vērtību pievieno 
+    //kā list elementu iekš ul#todolist
+//izveidojam funkciju, kas piespiežot uz li, tam pievieno klasi done
+//izveidojam funkciju, kas piespiežot uz #remove pogas izdzēš visus pabeigots todo elementus
+//Ja nav ko izdzēst, tad remove poga ir jāpaslēpj, un kad parādās kāds pabeigts elements tai ir jāparādās
+//ja ievades lauks ir tukšs un nospiests submit parādīt ziņojuma logu ar paziņojumu, ka tā nav atļauts un nesaglabāt šo vērtību
+//pēc veiksmīgas jaunā elementa saglabāšanas todo listā, nodzēst input lauka vērtību
+
+//izdarīt tā, lai pēc refresha mūsu todo lists atcerētos to, kas bija iepriekš saglabāts. 
+
+
+//izdomāt kā nodrošināt kārtošanu.
+
+
+    </script>
+</body>
+</html>
