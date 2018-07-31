@@ -30,22 +30,16 @@
 
         $(function() {
 
-           
-
             let save= localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
             const data = JSON.parse(localStorage.getItem('items'));
             console.log(localStorage);
             $("#todolist").sortable();
             $("#remove").hide();
-
-
             if (data != null) {
                 data.forEach(item => {
                 $("ul#todolist").append("<li>" + item + "</li>");
             });
             }
-
-
             $("#submit").click(function(){
                var v = $("#todo").val();
                if (v!="") {
@@ -56,14 +50,10 @@
                 } else {
                    alert("das box be empty");
                };
-             });
-
-            
-            
+             });          
             $("body").delegate("ul > li", "click", function(){ 
                 $(this).addClass("done");
                 $("#remove").show();
-
             }); 
             $("body").delegate("#remove", "click", function(){
                 $(".done").remove();
