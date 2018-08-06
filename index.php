@@ -1,4 +1,4 @@
-<?php
+<?phptrololo
 
     $variable = "lalala";
     $x = 5;
