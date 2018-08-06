@@ -29,5 +29,6 @@
     echo $variable." ".($x+$y);
     echo "<br>";
     print json_encode($mas);
+?>
 </body>
 </html>
